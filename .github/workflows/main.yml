@@ -1,0 +1,48 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: nerdy-turtle-client-v1
+
+on: [push, pull_request]
+#on:
+#  push:
+#    branches: [ production ]
+#  pull_request:
+#    branches: [ production ]
+
+jobs:
+  build:
+    name: node ${{ matrix.node-version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+        os: [ubuntu-latest]
+        # os: [ubuntu-latest, macOS-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # - name: Update the latest version of yarn
+      #   run: sudo npm install -g yarn@latest --force
+      - name: Update the latest version of npm
+        run: sudo npm install -g npm@latest
+
+      - name: Install Dependencies
+        run: npm install
+
+      # - name: Start command shell and Generate sitemap
+      #  run: sh script/generate-sitemap.sh
+
+      - name: Build
+        run: npm run build
+        # - run: npm ci
+        # - run: npm run build --if-present # --if-present => 스크립트가 정의되지 않은 경우 플래그를 사용하여 종료되지 않도록 설정
+        # - run: npm test
+        env:
+          CI: true
