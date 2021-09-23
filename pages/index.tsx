@@ -55,7 +55,7 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
           </p>
         </section>
         <section className="slick-container">
-          {reSize.width <= +MAX_WIDTH.replace('px', '') ? (
+          {reSize <= +MAX_WIDTH.replace('px', '') ? (
             <Slider {...slickConfig} slidesToShow={3}>
               <div className="slick-item">
                 <img src="https://via.placeholder.com/240" alt="240" />
