@@ -1,18 +1,18 @@
 import styled from 'styled-components'
-import Image from 'next/image'
+import { MAX_WIDTH } from '../styles/styles'
 
 const Footer: React.FC = () => {
   return (
     <FooterWrapper>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer">
-        Powered by{' '}
-        <span className="logo">
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </span>
-      </a>
+      <div className="container">
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer">
+          © 2021 Nerdy Turtle Team. All rights reserved.
+        </a>
+        <p>Powered by Dillon</p>
+      </div>
     </FooterWrapper>
   )
 }
@@ -20,16 +20,20 @@ const Footer: React.FC = () => {
 const FooterWrapper = styled.footer`
   width: 100%;
   height: 100px;
-  border-top: 1px solid #eaeaea;
+  margin: 0 auto;
+  border-top: 1px solid ${({ theme }) => theme.text};
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-flow: column nowrap;
 
-  a {
+  .container {
+    max-width: ${MAX_WIDTH};
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
+    flex-flow: column nowrap;
   }
 `
 

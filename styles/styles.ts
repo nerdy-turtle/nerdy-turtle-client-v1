@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import themes from './themes'
 
+export const MAX_WIDTH = '1024px'
 export const { xxxs, xxs, xs, sm, md, lg, xl, xxl, _4xl } = {
   xxxs: '@media (max-width: 20rem)', // 320px
   xxs: '@media (max-width: 32rem)', // 512px
@@ -80,6 +81,10 @@ export const GlobalStyles = createGlobalStyle`
         background: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.text};
         /* transition: background 0.2s ease-in, color 0.2s ease-in; */
+
+        ${md} {
+          padding: 0 1rem;
+        }
     }
     /* 모든 폰트가 'Noto Sans KR'에서 영문과 숫자만 'Roboto'로 적용 */
     /* @font-face {

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { md, styleMode } from '../styles/styles'
+import { MAX_WIDTH, md, styleMode } from '../styles/styles'
 import { Select } from 'antd'
 
 /** components */
@@ -14,9 +14,8 @@ const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
   const { locale } = router
   return (
     <HeaderWrapper>
-      <div className="header-title" onClick={() => router.push('#', '#', { locale })}>
-        <div className="logo"></div>
-        <span>Nerdy Turtle</span>
+      <div className="header-title">
+        <div className="logo" onClick={() => router.push('#', '#', { locale })}></div>
       </div>
       <div className="header-list">
         <Link href="/">
@@ -51,12 +50,11 @@ const HeaderWrapper = styled.header`
   justify-content: center;
 
   min-height: 3.75rem;
-  max-width: 64rem;
+  max-width: ${MAX_WIDTH};
   width: 100%;
   margin: 0 auto;
 
   ${md} {
-    padding: 0 1rem;
     row-gap: 0.5rem;
   }
 
@@ -66,16 +64,28 @@ const HeaderWrapper = styled.header`
   .header-title {
     gap: 1rem;
 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
-    cursor: pointer;
+    ${md} {
+      gap: 0.25rem;
+
+      > * {
+        flex: 1;
+      }
+    }
 
     .logo {
-      width: 2rem;
-      height: 2rem;
+      cursor: pointer;
+      max-width: 5rem;
+      width: 100%;
+      height: 3.75rem;
 
       background: url('https://via.placeholder.com/64') no-repeat center/cover;
+
+      ${md} {
+        max-width: initial;
+      }
     }
   }
 
@@ -91,10 +101,12 @@ const HeaderWrapper = styled.header`
   .header-actions {
     gap: 1rem;
 
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 
     ${md} {
+      justify-content: center;
+
       grid-column: 4/1;
       grid-row: 2;
     }

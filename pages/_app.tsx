@@ -5,6 +5,8 @@ import { GlobalStyles, TypeOfTheme } from '../styles/styles'
 import themes from '../styles/themes'
 
 import 'antd/dist/antd.css'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<TypeOfTheme>('light')
