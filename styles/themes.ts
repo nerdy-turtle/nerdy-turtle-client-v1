@@ -1,10 +1,12 @@
 const lightTheme = {
-  body: '#3F51B5',
-  text: '#fff',
+  body: 'rgba(238, 238, 238, 1)',
+  text: 'rgba(34, 34, 34, 1)',
+  hover: 'rgba(0, 112, 243, 1)',
 }
 const darkTheme = {
-  body: '#FFCD1C',
-  text: '#222',
+  body: 'rgba(18, 18, 18, 1)',
+  text: 'rgba(238, 238, 238, 1)',
+  hover: 'rgba(255, 206, 28, 1)',
 }
 
 const themes = {

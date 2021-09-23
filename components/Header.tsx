@@ -1,17 +1,44 @@
 import styled from 'styled-components'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { styleMode } from '../styles/styles'
+import { Select } from 'antd'
+
 /** components */
 import DarkModeToggle from './DarkModeToggle'
 
 type Props = styleMode
 
 const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
+  const router = useRouter()
+  const { locale } = router
   return (
     <HeaderWrapper>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span style={{ margin: '1rem', minHeight: '2rem', display: 'flex', alignItems: 'center' }}>
-          Darkmode component :
-        </span>
+      <div className="header-title">
+        <div className="logo"></div>
+        <span>Nerdy Turtle</span>
+      </div>
+      <div className="header-list">
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        <Link href="/">
+          <a>coming soon</a>
+        </Link>
+        <Link href="/">
+          <a>coming soon</a>
+        </Link>
+      </div>
+      <div className="header-actions">
+        <div>
+          <Select
+            defaultValue={locale}
+            style={{ width: 'auto' }}
+            onChange={(value) => router.push(router.pathname, router.pathname, { locale: value })}>
+            <Select.Option value="ko">한국어</Select.Option>
+            <Select.Option value="en">English</Select.Option>
+          </Select>
+        </div>
         <DarkModeToggle toggleStyle={toggleStyle} theme={theme} />
       </div>
     </HeaderWrapper>
@@ -19,41 +46,56 @@ const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
 }
 
 const HeaderWrapper = styled.header`
-  .title a {
-    color: #0070f3;
-    text-decoration: none;
+  position: relative;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 3.75rem;
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto;
+
+  > * {
+    display: inline-flex;
+  }
+  .header-title {
+    flex-basis: 25%;
+    gap: 1rem;
+
+    justify-content: center;
+    align-items: center;
+
+    .logo {
+      width: 2rem;
+      height: 2rem;
+
+      background: url('http://placehold.it/64x64') no-repeat center/cover;
+    }
   }
 
-  .title a:hover,
-  .title a:focus,
-  .title a:active {
-    text-decoration: underline;
+  .header-list {
+    flex-basis: 50%;
+
+    justify-content: space-evenly;
+    align-items: center;
   }
 
-  .title {
-    margin: 0;
-    line-height: 1.15;
-    font-size: 4rem;
-  }
+  .header-actions {
+    flex-basis: 25%;
+    gap: 1rem;
 
-  .title,
-  .description {
-    text-align: center;
-  }
+    justify-content: center;
+    align-items: center;
 
-  .description {
-    line-height: 1.5;
-    font-size: 1.5rem;
-  }
-
-  code {
-    background: #fafafa;
-    color: #000000;
-    border-radius: 5px;
-    padding: 0.75rem;
-    font-size: 1.1rem;
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-      Bitstream Vera Sans Mono, Courier New, monospace;
+    .ant-select {
+      .ant-select-selector {
+        background-color: transparent;
+        border: 0;
+      }
+    }
   }
 `
 

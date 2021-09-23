@@ -4,6 +4,8 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles, TypeOfTheme } from '../styles/styles'
 import themes from '../styles/themes'
 
+import 'antd/dist/antd.css'
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<TypeOfTheme>('light')
 

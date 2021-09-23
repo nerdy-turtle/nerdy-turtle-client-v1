@@ -93,7 +93,13 @@ export const GlobalStyles = createGlobalStyle`
     } */
     a {
       text-decoration: none;
+      color: ${({ theme }) => theme.text};
+      transition: color 0.3s;
     }
+    a:hover {
+      color: ${({ theme }) => theme.hover}
+    }
+
     ul {
       list-style: none;
     }
@@ -114,5 +120,13 @@ export const GlobalStyles = createGlobalStyle`
     }
     ::-webkit-scrollbar-thumb:hover {
         background: rgba(34, 45, 50, 1);
+    }
+
+    /** antd 커스텀 */
+    .ant-select {
+      color: ${({ theme: { text } }) => text}
+    }
+    .ant-select-arrow {
+      color: ${({ theme: { text } }) => text};
     }
 `

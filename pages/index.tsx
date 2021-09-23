@@ -78,7 +78,7 @@ const DivWrapper = styled.div`
     text-align: left;
     color: inherit;
     text-decoration: none;
-    border: 1px solid #eaeaea;
+    border: 1px solid ${({ theme }) => theme.text};
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
     width: 45%;
@@ -87,8 +87,8 @@ const DivWrapper = styled.div`
   .card:hover,
   .card:focus,
   .card:active {
-    color: #0070f3;
-    border-color: #0070f3;
+    color: ${({ theme: { hover } }) => hover};
+    border-color: ${({ theme: { hover } }) => hover};
   }
 
   .card h2 {
