@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { styleMode } from '../styles/styles'
+import { md, styleMode } from '../styles/styles'
 import { Select } from 'antd'
 
 /** components */
@@ -19,9 +19,6 @@ const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
         <span>Nerdy Turtle</span>
       </div>
       <div className="header-list">
-        <Link href="/">
-          <a>Home</a>
-        </Link>
         <Link href="/">
           <a>coming soon</a>
         </Link>
@@ -48,8 +45,8 @@ const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
 const HeaderWrapper = styled.header`
   position: relative;
 
-  display: flex;
-  flex-flow: row nowrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-content: center;
 
@@ -58,11 +55,14 @@ const HeaderWrapper = styled.header`
   width: 100%;
   margin: 0 auto;
 
+  ${md} {
+    row-gap: 0.5rem;
+  }
+
   > * {
     display: inline-flex;
   }
   .header-title {
-    flex-basis: 25%;
     gap: 1rem;
 
     justify-content: center;
@@ -77,19 +77,24 @@ const HeaderWrapper = styled.header`
   }
 
   .header-list {
-    flex-basis: 50%;
-
     justify-content: space-evenly;
     align-items: center;
+
+    ${md} {
+      grid-column: 2/4;
+    }
   }
 
   .header-actions {
-    flex-basis: 25%;
     gap: 1rem;
 
     justify-content: center;
     align-items: center;
 
+    ${md} {
+      grid-column: 4/1;
+      grid-row: 2;
+    }
     .ant-select {
       .ant-select-selector {
         background-color: transparent;
