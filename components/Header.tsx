@@ -75,7 +75,7 @@ const HeaderWrapper = styled.header`
       width: 2rem;
       height: 2rem;
 
-      background: url('http://placehold.it/64x64') no-repeat center/cover;
+      background: url('https://via.placeholder.com/64') no-repeat center/cover;
     }
   }
 
