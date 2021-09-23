@@ -50,26 +50,26 @@ const Toggle = styled.input<StyleProps>`
 
   &::before {
     content: '';
-    background: url('/static/light.svg') no-repeat center/cover;
+    background: url('/static/svg/sun.svg') no-repeat center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
 
     position: absolute;
-    width: ${({ height }) => (height ? height : '2rem')};
-    height: ${({ height }) => (height ? height : '2rem')};
-    top: -2px;
-    left: 0;
+    width: ${({ height }) => (height ? height : '1.5rem')};
+    height: ${({ height }) => (height ? height : '1.5rem')};
+    top: 2px;
+    left: 2px;
     background-color: transparent;
     border-radius: 2rem;
 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
     transition: all 0.25s;
   }
 
   &:checked::before {
     content: '';
-    background: url('/static/dark.svg') no-repeat center/cover;
+    background: url('/static/svg/moon.svg') no-repeat center/cover;
     left: ${({ height }) => (height ? height : '2rem')};
     display: flex;
     justify-content: center;

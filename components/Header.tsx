@@ -14,7 +14,7 @@ const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
   const { locale } = router
   return (
     <HeaderWrapper>
-      <div className="header-title">
+      <div className="header-title" onClick={() => router.push('#', '#', { locale })}>
         <div className="logo"></div>
         <span>Nerdy Turtle</span>
       </div>
@@ -56,6 +56,7 @@ const HeaderWrapper = styled.header`
   margin: 0 auto;
 
   ${md} {
+    padding: 0 1rem;
     row-gap: 0.5rem;
   }
 
@@ -67,6 +68,8 @@ const HeaderWrapper = styled.header`
 
     justify-content: center;
     align-items: center;
+
+    cursor: pointer;
 
     .logo {
       width: 2rem;
