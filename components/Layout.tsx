@@ -26,16 +26,19 @@ const Layout = ({
         {/* content="article"은 기사, 뉴스소식, 블로그 게시물에 대한 설정 */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
-        <meta property="og:url" content={`http://localhost:3000`} />
+        <meta property="og:url" content={`https://nerdyturtlenft.com/`} />
         {imageUrl && <meta property="og:image" content={imageUrl} />}
         <meta property="og:description" content={description} />
         <meta property="og:locale" content="ko_KR" />
         <meta property="og:locale:alternate" content="en_US" />
         <meta name="description" content={description} />
         <title>{title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
         {/* 선호 URL */}
-        <link rel="canonical" href="http://localhost:3000"></link>
+        <link rel="canonical" href="https://nerdyturtlenft.com/"></link>
+        {/* favicon */}
+        {/* <link rel="shortcut icon" href="/static/favicon.ico" /> */}
       </Head>
       <Header toggleStyle={toggleStyle} theme={theme} />
       {children}
