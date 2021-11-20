@@ -5,13 +5,8 @@ const Footer: React.FC = () => {
   return (
     <FooterWrapper>
       <div className="container">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer">
-          © 2021 Nerdy Turtle Team. All rights reserved.
-        </a>
-        <p>Powered by Dillon</p>
+        <p>© 2021 Nerdy Turtle Team. All rights reserved.</p>
+        <p>Powered by Gatsby</p>
       </div>
     </FooterWrapper>
   )

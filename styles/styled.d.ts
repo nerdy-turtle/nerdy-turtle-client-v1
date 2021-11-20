@@ -4,6 +4,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     body: string
     text: string
+    lightText: string
     hover: string
   }
 }

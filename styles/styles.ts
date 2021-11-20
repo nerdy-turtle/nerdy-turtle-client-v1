@@ -82,9 +82,6 @@ export const GlobalStyles = createGlobalStyle`
         color: ${({ theme }) => theme.text};
         /* transition: background 0.2s ease-in, color 0.2s ease-in; */
 
-        ${md} {
-          padding: 0 1rem;
-        }
     }
     /* 모든 폰트가 'Noto Sans KR'에서 영문과 숫자만 'Roboto'로 적용 */
     /* @font-face {
@@ -133,5 +130,80 @@ export const GlobalStyles = createGlobalStyle`
     }
     .ant-select-arrow {
       color: ${({ theme: { text } }) => text};
+    }
+
+    .ant-steps {
+      color: ${({ theme }) => theme.text};
+
+      .ant-steps-item-subtitle {
+        color: ${({ theme }) => theme.lightText};
+      }
+      .ant-steps-item-finish {
+        > .ant-steps-item-container {
+          > .ant-steps-item-content {
+            > .ant-steps-item-title {
+              color: ${({ theme }) => theme.text};
+            }
+
+            > .ant-steps-item-description {
+              color: ${({ theme }) => theme.lightText};
+            }
+          }
+        }
+      }
+      .ant-steps-item-process {
+        > .ant-steps-item-container {
+          > .ant-steps-item-content {
+            > .ant-steps-item-title {
+              color: ${({ theme }) => theme.text};
+            }
+            
+            > .ant-steps-item-description {
+              color: ${({ theme }) => theme.lightText}; 
+            }
+          }
+          .ant-steps-item-tail {
+            &:after {
+              background-color: ${({ theme }) => theme.lightText};
+            }
+          }
+        }
+      }
+
+      
+      .ant-steps-item-wait {
+        > .ant-steps-item-container {
+          > .ant-steps-item-content {
+            > .ant-steps-item-title {
+              color: ${({ theme }) => theme.lightText};
+
+              &:after {
+                background-color: ${({ theme }) => theme.lightText};
+              }
+            }
+
+            > .ant-steps-item-description {
+              color: ${({ theme }) => theme.lightText};
+            }
+          }
+
+          .ant-steps-item-tail {
+            &:after {
+              background-color: ${({ theme }) => theme.lightText};
+            }
+          }
+        }
+      }
+      .ant-steps-item-process {
+        > .ant-steps-item-container {
+          > .ant-steps-item-content {
+            > .ant-steps-item-title {
+              &:after {
+                background-color: ${({ theme }) => theme.lightText};
+              }
+            }
+          }
+        }
+      }
     }
 `
