@@ -73,8 +73,8 @@ const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
                   onChange={(value) =>
                     router.push(router.pathname, router.pathname, { locale: value })
                   }>
-                  <Select.Option value="ko">한국어</Select.Option>
                   <Select.Option value="en">English</Select.Option>
+                  <Select.Option value="ko">한국어</Select.Option>
                 </Select>
               </div>
               <div className="btn solid">

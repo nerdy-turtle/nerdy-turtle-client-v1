@@ -14,11 +14,11 @@ import { useEffect, useState } from 'react'
 
 type Props = styleMode
 
-const textArr = ['나', '너', '우리', '홀더', '널디']
-
 const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
   const router = useRouter()
   const { locale } = router
+  const textArr =
+    locale === 'ko' ? ['나', '너', '우리', '홀더', '널디'] : ['Me', 'You', 'We', 'Holder', 'Nerdy']
   const reSize = useWindowSize()
   const [increase, setIncrease] = useState<number>(0)
 
@@ -49,16 +49,56 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
     <Layout toggleStyle={toggleStyle} theme={theme}>
       <MainWrapper>
         <section id="about" className="about">
-          <p>
-            <span>{textArr[increase]}</span>를 위한 널디 모임에 오신걸 환영합니다.
-          </p>
-          <p>새로운 도전을 무서워 하는 널디들이 모여 새로운 도전을 하는 널디 모임입니다.</p>
-          <p>클레이튼 블록체인에 저장된 10,000개의 고유한 수집 가능한 거북이 친구들 입니다.</p>
-          <p>
-            동양에서의 거북이는 지혜와 제물을 가져다주는 재밌는 이야기와 해양 생태계에 영감을
-            받았으며 디지털 아트 및 수집품을 지원하는 KIP-17 표준을 활용합니다.
-          </p>
-          <p>생태계에서의 모임과 소통 활성화에 널디한 거북이 친구들을 접목시키고자 합니다.</p>
+          {locale === 'ko' ? (
+            <>
+              <p>
+                <span>{textArr[increase]}</span>를 위한 [널디 모임]에 오신걸 환영합니다.
+              </p>
+              <p>
+                새로운 도전을 무서워하는 널디들이 모여서 두려움을 극복하고자 새로운 도전을
+                시작합니다.
+              </p>
+              <p>
+                귀엽고, 매력있고 고유한 10,000개의 수집 가능한 거북이들은 클레이튼 블록체인에
+                저장되어있습니다.
+              </p>
+              <p>동양에서는 거북이가 지혜와 제물을 가져다준다는 재미있는 이야기가 있습니다. </p>
+              <p>
+                또한 해양 생태계 위기에서 영감을 얻었고 널디터틀은 디지털 아트 및 수집품을 지원하는
+                KIP-17 표준을 활용합니다.
+              </p>
+              <p>
+                그리고 Nerdy Turtles는 생태계 안에서 모임과 소통을 활성화하기 위해 사용될 것입니다.
+              </p>
+              <p>그리고 이 친구들은 매우 귀여워요. 👀</p>
+            </>
+          ) : (
+            <>
+              <p>
+                Welcome to the [Nerdy Meetings] for <span>{textArr[increase]}</span>.
+              </p>
+              <p>
+                Nerds who always gets afraid of new challenges have gathered and are starting new
+                challenges to overcome fear.
+              </p>
+              <p>
+                The 10,000 collectible turtles, which are cute, attractive and unique, are stored in
+                the Clayton blockchain.
+              </p>
+              <p>
+                In the East, there is an interesting story that turtles bring wisdom and wealth.
+              </p>
+              <p>
+                Nerdy Turtles were also inspired by the marine ecosystem crisis, and it utilizes the
+                KIP-17 standard that supports digital art and collections.
+              </p>
+              <p>
+                And Nerdy Turtles will be used to boost meetings and communication within the
+                ecosystem.
+              </p>
+              <p>And they are super cute.</p>
+            </>
+          )}
         </section>
         <section className="slick-container">
           {reSize <= +MAX_WIDTH.replace('px', '') ? (
@@ -105,6 +145,25 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
             </Slider>
           )}
         </section>
+        <section className="gallery">
+          <div className="section-description">
+            <h1>Gallery</h1>
+          </div>
+          <div className="container">
+            <div className="item">
+              <img src="https://via.placeholder.com/240" alt="240" />
+            </div>
+            <div className="item">
+              <img src="https://via.placeholder.com/240" alt="240" />
+            </div>
+            <div className="item">
+              <img src="https://via.placeholder.com/240" alt="240" />
+            </div>
+            <div className="item">
+              <img src="https://via.placeholder.com/240" alt="240" />
+            </div>
+          </div>
+        </section>
         <section className="roadmap">
           <div className="section-description">
             <h1>Roadmap</h1>
@@ -121,7 +180,7 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
               />
               <Steps.Step
                 title={locale === 'ko' ? '진행예정' : 'Waiting'}
-                subTitle={locale === 'ko' ? '굿즈' : ''}
+                subTitle={locale === 'ko' ? '굿즈' : 'Goods'}
                 description={locale === 'ko' ? '홀더에게 널디 케이스 & 그립톡 제공' : ''}
               />
               <Steps.Step
@@ -175,7 +234,7 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
                 <img src="https://via.placeholder.com/180" alt="team-3" />
               </div>
               <div className="content">
-                <div className="title">Gatsby</div>
+                <div className="title">Luke</div>
                 <div className="job">Developer</div>
               </div>
             </div>
@@ -184,7 +243,7 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
                 <img src="https://via.placeholder.com/180" alt="team-4" />
               </div>
               <div className="content">
-                <div className="title">Soon</div>
+                <div className="title">Michol</div>
                 <div className="job">Developer</div>
               </div>
             </div>
@@ -257,6 +316,24 @@ const MainWrapper = styled.main`
               width: 100%;
             }
           }
+        }
+      }
+    }
+  }
+
+  .gallery {
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1rem;
+
+      ${md} {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .item {
+        img {
+          width: 100%;
         }
       }
     }
