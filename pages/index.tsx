@@ -103,68 +103,41 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
         <section className="slick-container">
           {reSize <= +MAX_WIDTH.replace('px', '') ? (
             <Slider {...slickConfig} slidesToShow={3}>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
+              {Array(10)
+                .fill('')
+                .map((_, index) => (
+                  <div className="slick-item" key={index}>
+                    <img src={`/static/img/nerdy_${index + 1}.png`} alt="240" />
+                  </div>
+                ))}
             </Slider>
           ) : (
             <Slider {...slickConfig} slidesToShow={5}>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
-              <div className="slick-item">
-                <img src="https://via.placeholder.com/240" alt="240" />
-              </div>
+              {Array(10)
+                .fill('')
+                .map((_, index) => (
+                  <div className="slick-item" key={index}>
+                    <img src={`/static/img/nerdy_${index + 1}.png`} alt="240" />
+                  </div>
+                ))}
             </Slider>
           )}
         </section>
-        <section className="gallery">
+        <section id="gallery" className="gallery">
           <div className="section-description">
             <h1>Gallery</h1>
           </div>
           <div className="container">
-            <div className="item">
-              <img src="https://via.placeholder.com/240" alt="240" />
-            </div>
-            <div className="item">
-              <img src="https://via.placeholder.com/240" alt="240" />
-            </div>
-            <div className="item">
-              <img src="https://via.placeholder.com/240" alt="240" />
-            </div>
-            <div className="item">
-              <img src="https://via.placeholder.com/240" alt="240" />
-            </div>
+            {Array(16)
+              .fill('')
+              .map((_, index) => (
+                <div className="item" key={index}>
+                  <img src={`/static/img/nerdy_${index + 11}.png`} alt="240" />
+                </div>
+              ))}
           </div>
         </section>
-        <section className="roadmap">
+        <section id="roadmap" className="roadmap">
           <div className="section-description">
             <h1>Roadmap</h1>
           </div>
@@ -176,12 +149,16 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
               <Steps.Step
                 title={locale === 'ko' ? '진행중' : 'In Progress'}
                 subTitle={locale === 'ko' ? '민팅' : 'Minting'}
-                description={locale === 'ko' ? '모든 민팅 완료' : 'All minting is done'}
+                description={locale === 'ko' ? '모든 민팅 완료' : 'Minting complete'}
               />
               <Steps.Step
                 title={locale === 'ko' ? '진행예정' : 'Waiting'}
                 subTitle={locale === 'ko' ? '굿즈' : 'Goods'}
-                description={locale === 'ko' ? '홀더에게 널디 케이스 & 그립톡 제공' : ''}
+                description={
+                  locale === 'ko'
+                    ? '홀더에게 널디 케이스 & 그립톡 제공'
+                    : 'Provide Nerdy cases&pop grip to holders'
+                }
               />
               <Steps.Step
                 title={locale === 'ko' ? '진행예정' : 'Waiting'}
@@ -189,7 +166,7 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
                 description={
                   locale === 'ko'
                     ? '자체 토큰 개발도 가능하며 진행 상황에 따라 홀더와 커뮤니케이션을 통해 여러가지 길을 열어둘것입니다.'
-                    : ''
+                    : 'We are planning to develop our own tokens, and we will keep the possibilities open for various options through communication with the holder depending on the progress.'
                 }
               />
               <Steps.Step
@@ -198,17 +175,21 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
                 description={
                   locale === 'ko'
                     ? '생태계 구성에 필요한 기획이나 아이디어는 모여 하나의 큰 생태계를 디벨롭하게 될 것 입니다.'
-                    : ''
+                    : 'Plans and ideas needed to construct the ecosystem will gather to build a large ecosystem.'
                 }
               />
             </Steps>
           </div>
         </section>
-        <section className="team">
+        <section id="team" className="team">
           <div className="section-description">
             <h1>Team</h1>
-            <p>하늘을 나는 거북이라고 들어봤어? 🐢</p>
-            <p>그게 우리야 🚀</p>
+            <p>
+              {locale === 'ko'
+                ? '하늘을 나는 거북이라고 들어봤어? 🐢'
+                : 'Heard of flying turtles? 🐢'}
+            </p>
+            <p>{locale === 'ko' ? '그게 우리야 🚀' : 'That’s us 🚀'}</p>
           </div>
           <div className="container">
             <div>

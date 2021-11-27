@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [theme, setTheme] = useState<TypeOfTheme>('light')
+  const [theme, setTheme] = useState<TypeOfTheme>('dark')
 
   const toggleStyle = useCallback(
     (mode: TypeOfTheme) => {

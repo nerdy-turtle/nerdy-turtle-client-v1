@@ -175,7 +175,7 @@ export const GlobalStyles = createGlobalStyle`
         > .ant-steps-item-container {
           > .ant-steps-item-content {
             > .ant-steps-item-title {
-              color: ${({ theme }) => theme.lightText};
+              color: ${({ theme }) => theme.text};
 
               &:after {
                 background-color: ${({ theme }) => theme.lightText};

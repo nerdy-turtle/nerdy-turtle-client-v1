@@ -54,13 +54,23 @@ const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
             <div className="nav-links">
               <ul>
                 <li className="nav-link">
-                  <Link href="#">
-                    <a>Home</a>
+                  <Link href="#about">
+                    <a>About</a>
                   </Link>
                 </li>
                 <li className="nav-link">
-                  <Link href="#">
-                    <a>About</a>
+                  <Link href="#gallery">
+                    <a>Gallery</a>
+                  </Link>
+                </li>
+                <li className="nav-link">
+                  <Link href="#roadmap">
+                    <a>Roadmap</a>
+                  </Link>
+                </li>
+                <li className="nav-link">
+                  <Link href="#team">
+                    <a>Team</a>
                   </Link>
                 </li>
               </ul>
