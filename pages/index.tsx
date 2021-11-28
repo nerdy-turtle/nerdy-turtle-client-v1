@@ -233,7 +233,7 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
                 <img src="https://via.placeholder.com/180" alt="team-5" />
               </div>
               <div className="content">
-                <div className="title">Kevin</div>
+                <div className="title">Chris</div>
                 <div className="job">Data Engineer</div>
               </div>
             </div>
