@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <FooterWrapper>
       <div className="container">
         <p>© 2021 Nerdy Turtle Team. All rights reserved.</p>
-        <p>Powered by Gatsby</p>
+        <p>Powered by Luke</p>
       </div>
     </FooterWrapper>
   )

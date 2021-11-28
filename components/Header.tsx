@@ -26,6 +26,9 @@ const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
     }
   }, [])
 
+  const onHrefClick = () =>
+    ((document.querySelector('#menu-btn') as HTMLInputElement).checked = false)
+
   // scroll event
   useEffect(() => {
     window.addEventListener('scroll', handler)
@@ -55,22 +58,22 @@ const Header: React.FC<Props> = ({ toggleStyle, theme }) => {
               <ul>
                 <li className="nav-link">
                   <Link href="#about">
-                    <a>About</a>
+                    <a onClick={onHrefClick}>About</a>
                   </Link>
                 </li>
                 <li className="nav-link">
                   <Link href="#gallery">
-                    <a>Gallery</a>
+                    <a onClick={onHrefClick}>Gallery</a>
                   </Link>
                 </li>
                 <li className="nav-link">
                   <Link href="#roadmap">
-                    <a>Roadmap</a>
+                    <a onClick={onHrefClick}>Roadmap</a>
                   </Link>
                 </li>
                 <li className="nav-link">
                   <Link href="#team">
-                    <a>Team</a>
+                    <a onClick={onHrefClick}>Team</a>
                   </Link>
                 </li>
               </ul>
@@ -163,6 +166,8 @@ const HeaderWrapper = styled.header`
   z-index: 2;
   transition: 0.4s ease-out;
   margin: 0 auto;
+
+  background-color: ${({ theme }) => `${theme.body}${opacityHex._80}`};
 
   ${md} {
     margin: 0;

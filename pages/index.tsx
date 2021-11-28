@@ -96,7 +96,7 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
                 And Nerdy Turtles will be used to boost meetings and communication within the
                 ecosystem.
               </p>
-              <p>And they are super cute.</p>
+              <p>And they are super cute. 👀</p>
             </>
           )}
         </section>
