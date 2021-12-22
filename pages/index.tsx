@@ -199,6 +199,11 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
               <div className="content">
                 <div className="title">Agent K</div>
                 <div className="job">Marketer & Writer</div>
+                <div className="description">
+                  {locale === 'ko'
+                    ? '글로벌 마케터이면서 소심한 작가.'
+                    : 'Global marketer a.k.a timid writer.'}
+                </div>
               </div>
             </div>
             <div>
@@ -208,6 +213,11 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
               <div className="content">
                 <div className="title">Shindy</div>
                 <div className="job">Designer</div>
+                <div className="description">
+                  {locale === 'ko'
+                    ? '프로덕트, 일러스트등 다양한 분야의 디자인 경험 보유.'
+                    : 'Design specialist covering from products to illustration'}
+                </div>
               </div>
             </div>
             <div>
@@ -217,6 +227,11 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
               <div className="content">
                 <div className="title">Luke</div>
                 <div className="job">Developer</div>
+                <div className="description">
+                  {locale === 'ko'
+                    ? '여러 유명 프로젝트를 경험한 Sinior Front Developer'
+                    : 'Senior Front Developer who has experienced many prominent projects.'}
+                </div>
               </div>
             </div>
             <div>
@@ -224,8 +239,13 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
                 <img src="https://via.placeholder.com/180" alt="team-4" />
               </div>
               <div className="content">
-                <div className="title">Michol</div>
+                <div className="title">Gildong</div>
                 <div className="job">Developer</div>
+                <div className="description">
+                  {locale === 'ko'
+                    ? '블록체인업계에 관련이 있는 Sinior Back Developer'
+                    : 'Senior Back Developer Related to Blockchain Industry'}
+                </div>
               </div>
             </div>
             <div>
@@ -235,6 +255,9 @@ const Home: NextPage<Props> = ({ toggleStyle, theme }) => {
               <div className="content">
                 <div className="title">Chris</div>
                 <div className="job">Data Engineer</div>
+                <div className="description">
+                  {locale === 'ko' ? '은둔형 Data Scientist' : 'Secluded Data Scientist'}
+                </div>
               </div>
             </div>
           </div>
@@ -366,6 +389,10 @@ const MainWrapper = styled.main`
             ${md} {
               font-size: 0.875rem;
             }
+          }
+
+          .description {
+            word-break: break-all;
           }
         }
       }
